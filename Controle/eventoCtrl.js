@@ -36,7 +36,7 @@ export default class eventoCtrl{
                 resposta.status(400);
                 resposta.json({
                     "status":false,
-                    "mensage": "Por favor, informe os dados do Evento corretamente."
+                    "mensagem": "Por favor, informe os dados do Evento corretamente."
                 })
             }
         }
@@ -44,7 +44,7 @@ export default class eventoCtrl{
             resposta.status(405);
             resposta.json({
                 "status":false,
-                "mensage": "Requisição inválida"
+                "mensagem": "Requisição inválida"
             })
         }
     }
@@ -83,7 +83,7 @@ export default class eventoCtrl{
                 resposta.status(400);
                 resposta.json({
                     "status":false,
-                    "mensage": "Por favor, informe os dados do Evento corretamente."
+                    "mensagem": "Por favor, informe os dados do Evento corretamente."
                 })
             }
         }
@@ -91,7 +91,7 @@ export default class eventoCtrl{
             resposta.status(405);
             resposta.json({
                 "status":false,
-                "mensage": "Requisição inválida"
+                "mensagem": "Requisição inválida"
             })
         }
     }
@@ -123,7 +123,7 @@ export default class eventoCtrl{
                 resposta.status(400);
                 resposta.json({
                     "status":false,
-                    "mensage": "Por favor, informe os dados do Evento corretamente."
+                    "mensagem": "Por favor, informe os dados do Evento corretamente."
                 })
             }
         }
@@ -131,7 +131,7 @@ export default class eventoCtrl{
             resposta.status(405);
             resposta.json({
                 "status":false,
-                "mensage": "Requisição inválida"
+                "mensagem": "Requisição inválida"
             })
         }
     }
@@ -160,7 +160,7 @@ export default class eventoCtrl{
             resposta.status(405);
             resposta.json({
                 "status":false,
-                "mensage": "Requisição inválida"
+                "mensagem": "Requisição inválida"
             })
         }
     }
