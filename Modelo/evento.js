@@ -1,4 +1,4 @@
-import EventoDAO from "../Persistencia/EventoDAO.js";
+import EventoDAO from "../Persistência/EventoDAO.js";
 
 export default class Evento {
   #codigo;
