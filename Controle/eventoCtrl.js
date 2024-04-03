@@ -1,4 +1,4 @@
-import Evento from "../Modelo/evento.js";
+import Evnt from "../Modelo/evento.js";
 
 export default class eventoCtrl{
 
@@ -13,16 +13,16 @@ export default class eventoCtrl{
             const cidade = dados.cidade;
             const estado = dados.estado;
             const valor = dados.valor;
-            const dataEvento = dados.dataEvento;
+            const dataEvento = dados.data;
 
             if(nome && endereco && cidade && estado && valor && dataEvento){
-                const evento = new Evento(0, nome, endereco, cidade, estado, valor, dataEvento);
-                evento.gravar().then(()=>{
+                const evnt = new Evnt(0, nome, endereco, cidade, estado, valor, dataEvento);
+                evnt.gravar().then(()=>{
                     resposta.status(201);
                     resposta.json({
                         "status": true,
                         "mensagem": "Evento gravado com sucesso",
-                        "codigo_evento" : evento.codigo
+                        "codigo_evento" : evnt.codigo
                     })
                 }).catch((erro) =>{
                     resposta.status(500);
@@ -36,7 +36,8 @@ export default class eventoCtrl{
                 resposta.status(400);
                 resposta.json({
                     "status":false,
-                    "mensagem": "Por favor, informe os dados do Evento corretamente."
+                    "mensagem": `Por favor, informe os dados do Evento corretamente. ${nome} , ${endereco} , ${cidade} , ${estado} , ${valor} , ${dataEvento}`
+                    
                 })
             }
         }
@@ -64,8 +65,8 @@ export default class eventoCtrl{
             const dataEvento = dados.dataEvento;
 
             if(codigo && codigo > 0 && nome && endereco && cidade && estado && valor && dataEvento){
-                const evento = new Evento(codigo, nome, endereco, cidade, estado, valor, dataEvento);
-                evento.atualizar().then(()=>{
+                const evnt = new Evnt(codigo, nome, endereco, cidade, estado, valor, dataEvento);
+                evnt.atualizar().then(()=>{
                     resposta.status(200);
                     resposta.json({
                         "status": true,
@@ -103,8 +104,8 @@ export default class eventoCtrl{
         if(requisicao.method === "DELETE"){
             const codigo = requisicao.params.codigo;
             if(codigo && codigo > 0){
-                const evento = new Evento(codigo);
-                evento.excluir()
+                const evnt = new Evnt(codigo);
+                evnt.excluir()
                 .then(()=>{
                     resposta.status(200);
                     resposta.json({
@@ -142,11 +143,11 @@ export default class eventoCtrl{
 
         if(requisicao.method === "GET"){
             const termoDePesquisa = requisicao.params.termo;
-            const evento = new Evento(0);
-            evento.consultar(termoDePesquisa)
-            .then((eventos)=>{
+            const evnt = new Evnt(0);
+            evnt.consultar(termoDePesquisa)
+            .then((evnts)=>{
                 resposta.status(200);
-                resposta.json(eventos);
+                resposta.json(evnts);
             })
             .catch((erro)=>{
                 resposta.status(500);

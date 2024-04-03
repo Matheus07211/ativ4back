@@ -1,6 +1,6 @@
 import EventoDAO from "../Persistência/EventoDAO.js";
 
-export default class Evento {
+export default class Evnt {
   #codigo;
   #nome;
   #endereco;
