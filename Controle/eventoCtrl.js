@@ -62,7 +62,7 @@ export default class eventoCtrl{
             const cidade = dados.cidade;
             const estado = dados.estado;
             const valor = dados.valor;
-            const dataEvento = dados.dataEvento;
+            const dataEvento = dados.data;
 
             if(codigo && codigo > 0 && nome && endereco && cidade && estado && valor && dataEvento){
                 const evnt = new Evnt(codigo, nome, endereco, cidade, estado, valor, dataEvento);

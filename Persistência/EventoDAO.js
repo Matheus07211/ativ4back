@@ -51,18 +51,17 @@ export default class EventoDAO {
     }
 
     async consultar(termoDePesquisa){
-        if (termoDePesquisa === undefined){
+        if (!termoDePesquisa){
             termoDePesquisa = "";
         }
         let sql="";
-        if (isNaN(termoDePesquisa)){
+        if (isNaN(parseInt(termoDePesquisa))){
             sql = `SELECT * FROM evento WHERE nome LIKE ?`; 
             termoDePesquisa= '%' + termoDePesquisa + '%';            
         }
         else{
             sql=`SELECT * FROM evento WHERE id = ?`;
         }
-
         const conexao = await conectar(); 
         const [registros] = await conexao.execute(sql,[termoDePesquisa]);
 
